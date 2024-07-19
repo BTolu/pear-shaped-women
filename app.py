@@ -31,12 +31,12 @@ def predict(data: Measurements):
     waist = data_dict['waist']
 
     prediction = model.predict([[full_length, shoulder, bust, waist]])
-    return {"prediction": prediction}
+    return prediction[0].tolist()
     
     # return {prediction}
 
 # test_data = Measurements(full_length=1, shoulder=10, bust=10, waist=10)
 # prediction = predict(test_data)
 # print(prediction)
-if __name__ == "__main__":
-    uvicorn.run(app, host='127.0.1', port=8000)
+# if __name__ == "__main__":
+#     uvicorn.run(app, host='127.0.1', port=8000)
